@@ -21,6 +21,9 @@ module.exports = class MessageSender {
             imageUrl);
         let messageToSend = messageWithEmbed.buildMessage();
         if (argInput) {
+            if (!messageToSend.embed.fields) {
+                messageToSend.embed.fields = [];
+            }
             messageToSend.embed.fields.push({
                 name: "Your Input",
                 value: argInput,
