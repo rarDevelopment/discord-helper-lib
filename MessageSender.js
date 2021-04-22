@@ -6,8 +6,14 @@ module.exports = class MessageSender {
     RegularColor = 16777215;
     ErrorColor = 16711680;
 
-    sendMessage(messageToSend, channel) {
-        return channel.createMessage(messageToSend);
+    sendMessage(messageToSend, channel, reactionsToAdd) {
+        return channel.createMessage(messageToSend).then(m => {
+            if(reactionsToAdd){
+                reactionsToAdd.forEach(r => {
+                    m.addReaction(r).catch(e => console.error(`Error adding ${r} - ${e}`));
+                });
+            }
+        });
     }
 
     sendErrorMessage(errorMessage, argInput, username, channelToSend, replyMessageId, imageUrl) {
