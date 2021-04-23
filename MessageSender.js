@@ -2,10 +2,6 @@ const MessageReplyDetails = require("./MessageReplyDetails");
 const MessageWithEmbed = require("./MessageWithEmbed");
 
 module.exports = class MessageSender {
-
-    RegularColor = 16777215;
-    ErrorColor = 16711680;
-
     sendMessage(messageToSend, channel, reactionsToAdd) {
         return channel.createMessage(messageToSend).then(m => {
             if(reactionsToAdd){
@@ -14,6 +10,13 @@ module.exports = class MessageSender {
                 });
             }
         });
+    }
+
+    editMessageWithEmbed(embedContent, messageToEdit) {
+        const message = {
+            embed: embedContent
+        };
+        messageToEdit.edit(message);
     }
 
     sendErrorMessage(errorMessage, argInput, username, channelToSend, replyMessageId, imageUrl) {
