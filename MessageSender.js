@@ -4,7 +4,7 @@ const MessageWithEmbed = require("./MessageWithEmbed");
 module.exports = class MessageSender {
     sendMessage(messageToSend, channel, reactionsToAdd) {
         return channel.createMessage(messageToSend).then(m => {
-            if(reactionsToAdd){
+            if (reactionsToAdd) {
                 reactionsToAdd.forEach(r => {
                     m.addReaction(r).catch(e => console.error(`Error adding ${r} - ${e}`));
                 });
@@ -19,13 +19,13 @@ module.exports = class MessageSender {
         messageToEdit.edit(message);
     }
 
-    sendErrorMessage(errorMessage, argInput, username, channelToSend, replyMessageId, imageUrl) {
+    sendErrorMessage(errorMessage, argInput, username, channelToSend, messageReplyDetails, imageUrl) {
         const messageWithEmbed = new MessageWithEmbed(
             errorMessage,
             "Something went wrong!",
             null,
             `Requested by ${username}`,
-            new MessageReplyDetails(replyMessageId, true),
+            messageReplyDetails,
             this.ErrorColor,
             imageUrl);
         let messageToSend = messageWithEmbed.buildMessage();
