@@ -1,5 +1,5 @@
-const MessageReplyDetails = require("./MessageReplyDetails");
 const MessageWithEmbed = require("./MessageWithEmbed");
+const MessageColors = require("./MessageColors");
 
 module.exports = class MessageSender {
     sendMessage(messageToSend, channel, reactionsToAdd) {
@@ -26,7 +26,7 @@ module.exports = class MessageSender {
             null,
             `Requested by ${username}`,
             messageReplyDetails,
-            this.ErrorColor,
+            new MessageColors().ErrorColor,
             imageUrl);
         let messageToSend = messageWithEmbed.buildMessage();
         if (argInput) {
