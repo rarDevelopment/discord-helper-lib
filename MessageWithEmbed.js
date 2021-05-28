@@ -36,7 +36,7 @@ module.exports = class MessageWithEmbed {
         }
         if (this.messageReplyDetails) {
             message.messageReferenceID = this.messageReplyDetails.replyMessageId;
-            message.messageReference = { id: this.messageReplyDetails.replyMessageId }
+            //message.messageReference = { id: this.messageReplyDetails.replyMessageId }
             message.allowedMentions = {
                 everyone: true,
                 roles: true,
