@@ -1,8 +1,10 @@
+const emojiRegex = require('emoji-regex/RGI_Emoji.js');
+
 module.exports = class EmojiValidator {
     constructor(guildEmojis) {
         this.guildEmojis = guildEmojis;
     }
-    
+
     getValidEmojiFromText(text) {
         const regex = emojiRegex();
         const emojiMatch = text.match(regex);
