@@ -1,4 +1,4 @@
-module.exports = class MessageWithEmbed {
+module.exports = class Message {
     constructor(text, messageReplyDetails) {
         this.text = text;
         this.messageReplyDetails = messageReplyDetails;
