@@ -1,9 +1,8 @@
 module.exports = class MentionValidator {
-    constructor(guildEmojis) {
-        this.guildEmojis = guildEmojis;
+    constructor() {
     }
 
-    isMention(text){
+    isMention(text) {
         return /<@!\d+>/.test(text);
     }
 }

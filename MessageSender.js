@@ -17,7 +17,7 @@ module.exports = class MessageSender {
         const message = {
             embed: embedContent
         };
-        messageToEdit.edit(message);
+        return messageToEdit.edit(message);
     }
 
     sendErrorMessage(errorMessage, argInput, username, channelToSend, messageReplyDetails, imageUrl) {

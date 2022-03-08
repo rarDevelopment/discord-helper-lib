@@ -1,6 +1,5 @@
 module.exports = class ChannelValidator {
-    constructor(guildEmojis) {
-        this.guildEmojis = guildEmojis;
+    constructor() {
     }
 
     isChannel(text) {
