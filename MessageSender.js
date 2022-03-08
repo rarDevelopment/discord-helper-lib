@@ -3,12 +3,13 @@ const MessageColors = require("./MessageColors");
 
 module.exports = class MessageSender {
     sendMessage(messageToSend, channel, reactionsToAdd) {
-        return channel.createMessage(messageToSend).then(m => {
+        return channel.createMessage(messageToSend).then(messageSent => {
             if (reactionsToAdd) {
                 reactionsToAdd.forEach(r => {
-                    m.addReaction(r).catch(e => console.error(`Error adding ${r} - ${e}`));
+                    messageSent.addReaction(r).catch(e => console.error(`Error adding ${r} - ${e}`));
                 });
             }
+            return messageSent;
         });
     }
 
