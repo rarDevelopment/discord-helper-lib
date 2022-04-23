@@ -29,8 +29,4 @@ module.exports = class RoleHelper {
         }
         return canAdmin;
     }
-
-    getValidRoles = (roles, rolePrefix) => {
-        return roles.filter(r => r.name.toLowerCase().startsWith(rolePrefix));
-    }
 }
