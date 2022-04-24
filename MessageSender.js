@@ -1,5 +1,5 @@
-import MessageWithEmbed from "./MessageWithEmbed";
-import MessageColors from "./MessageColors";
+import MessageWithEmbed from "./MessageWithEmbed.js";
+import MessageColors from "./MessageColors.js";
 
 export default class MessageSender {
     sendMessage(messageToSend, channel, reactionsToAdd) {
