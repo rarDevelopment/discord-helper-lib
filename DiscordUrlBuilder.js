@@ -1,4 +1,4 @@
-module.exports = class DiscordUrlBuilder {
+export default class DiscordUrlBuilder {
     constructor(guildId) {
         this.guildId = guildId;
     }

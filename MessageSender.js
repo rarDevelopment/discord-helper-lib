@@ -1,7 +1,7 @@
-const MessageWithEmbed = require("./MessageWithEmbed");
-const MessageColors = require("./MessageColors");
+import MessageWithEmbed from "./MessageWithEmbed";
+import MessageColors from "./MessageColors";
 
-module.exports = class MessageSender {
+export default class MessageSender {
     sendMessage(messageToSend, channel, reactionsToAdd) {
         return channel.createMessage(messageToSend).then(messageSent => {
             if (reactionsToAdd) {

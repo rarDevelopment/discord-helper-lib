@@ -1,6 +1,6 @@
-const emojiRegex = require('emoji-regex/RGI_Emoji.js');
+import emojiRegex from 'emoji-regex/RGI_Emoji.js';
 
-module.exports = class EmojiValidator {
+export default class EmojiValidator {
     constructor(guildEmojis) {
         this.guildEmojis = guildEmojis;
     }

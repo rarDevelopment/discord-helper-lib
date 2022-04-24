@@ -1,4 +1,4 @@
-module.exports = class RoleHelper {
+export default class RoleHelper {
     constructor(ownerId, allowedRoleIds, allowedPermissionNames) {
         this.ownerId = ownerId;
         this.allowedRoleIds = allowedRoleIds;

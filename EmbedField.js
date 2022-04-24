@@ -1,4 +1,4 @@
-module.exports = class EmbedField {
+export default class EmbedField {
     constructor(name, value, inline) {
         this.name = name;
         this.value = value;

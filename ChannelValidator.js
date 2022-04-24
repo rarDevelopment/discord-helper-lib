@@ -1,4 +1,4 @@
-module.exports = class ChannelValidator {
+export default class ChannelValidator {
     constructor() {
     }
 

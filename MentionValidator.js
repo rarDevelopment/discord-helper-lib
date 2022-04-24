@@ -1,4 +1,4 @@
-module.exports = class MentionValidator {
+export default class MentionValidator {
     constructor() {
     }
 

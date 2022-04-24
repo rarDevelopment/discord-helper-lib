@@ -1,4 +1,4 @@
-module.exports = class MessageWithEmbed {
+export default class MessageWithEmbed {
     constructor(text, title, embedFields, footerText, messageReplyDetails, color, imageUrl) {
         this.text = text;
         this.title = title;

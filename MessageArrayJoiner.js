@@ -1,4 +1,4 @@
-module.exports = class MessageArrayJoiner {
+export default class MessageArrayJoiner {
     buildMessageArrayFromStringArray(messagesToCombine, maxMessageLength, firstMessageTitle = '') {
         let messageArray = [];
         let arrayIndex = 0;
