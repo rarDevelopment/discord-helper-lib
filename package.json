@@ -1,9 +1,10 @@
 {
     "name": "discord-helper-lib",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Discord Helper Library",
     "author": "rardk64",
     "type": "module",
+    "main": "index.js",
     "scripts": {},
     "dependencies": {
         "emoji-regex": "^9.2.2"
