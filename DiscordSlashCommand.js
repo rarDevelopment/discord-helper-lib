@@ -1,4 +1,4 @@
-module.exports = class DiscordEvent {
+module.exports = class DiscordSlashCommand {
     constructor(name, description, options, type) {
         this.name = name;
         this.description = description;
