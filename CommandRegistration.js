@@ -23,4 +23,14 @@ module.exports = class CommandRegistration {
             }
         });
     }
+    registerSlashCommands(bot, commands) {
+        commands.forEach(command => {
+            bot.createCommand({
+                name: command.name,
+                description: command.description,
+                options: command.options,
+                type: command.type
+            });
+        });
+    }
 }
