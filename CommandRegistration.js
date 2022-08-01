@@ -1,4 +1,5 @@
 module.exports = class CommandRegistration {
+    /** Run this with a list of DiscordCommands */
     registerCommands(bot, commands) {
         commands.forEach(command => {
             bot.registerCommand(command.name, command.execute.bind(command), {
@@ -23,6 +24,7 @@ module.exports = class CommandRegistration {
             }
         });
     }
+    //** Run this with a list of DiscordSlashCommands */
     registerSlashCommands(bot, commands) {
         commands.forEach(command => {
             bot.createCommand({
@@ -32,5 +34,14 @@ module.exports = class CommandRegistration {
                 type: command.type
             });
         });
+    }
+    /** Run this in your interactionCreate event handler and pass in the interaction. */
+    setUpSlashCommand(interaction) {
+        const command = commands.find(c => c.name === interaction.data.name);
+        if (command) {
+            return command.execute(interaction);
+        }
+        console.error(`Could not process interaction with name ${interaction.data.name}`);
+        return interaction.createMessage("ERROR: This interaction was not found.");
     }
 }
