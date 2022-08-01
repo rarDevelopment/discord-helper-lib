@@ -1,5 +1,5 @@
 module.exports = class CommandRegistration {
-    /** Run this with a list of DiscordCommands */
+    /** Run this with a list of DiscordCommand objects */
     registerCommands(bot, commands) {
         commands.forEach(command => {
             bot.registerCommand(command.name, command.execute.bind(command), {
@@ -24,7 +24,7 @@ module.exports = class CommandRegistration {
             }
         });
     }
-    //** Run this with a list of DiscordSlashCommands */
+    //** Run this with a list of DiscordSlashCommand objects */
     registerSlashCommands(bot, commands) {
         commands.forEach(command => {
             bot.createCommand({
@@ -35,8 +35,8 @@ module.exports = class CommandRegistration {
             });
         });
     }
-    /** Run this in your interactionCreate event handler and pass in the interaction. */
-    setUpSlashCommand(interaction) {
+    /** Run this in your interactionCreate event handler and pass in the interaction and a list of DiscordSlashCommand objects. */
+    setUpSlashCommand(interaction, commands) {
         const command = commands.find(c => c.name === interaction.data.name);
         if (command) {
             return command.execute(interaction);
