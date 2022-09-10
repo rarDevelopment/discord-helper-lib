@@ -24,8 +24,8 @@ module.exports = class CommandRegistration {
             }
         });
     }
-    //** Run this with a list of DiscordSlashCommand objects */
-    registerSlashCommands(bot, commands) {
+    /** Run this with a list of DiscordSlashCommand objects */
+    async registerSlashCommands(bot, commands) {
         commands.forEach(command => {
             bot.createCommand({
                 name: command.name,
@@ -33,6 +33,13 @@ module.exports = class CommandRegistration {
                 options: command.options,
                 type: command.type
             });
+        });
+
+        const allCommands = await bot.getCommands();
+        const existingCommandNames = commands.map(c => c.name);
+        const commandsToDelete = allCommands.filter(c => !existingCommandNames.includes(c.name));
+        commandsToDelete.forEach(c => {
+            bot.deleteCommand(c.id);
         });
     }
     /** Run this in your interactionCreate event handler and pass in the interaction and a list of DiscordSlashCommand objects. */
