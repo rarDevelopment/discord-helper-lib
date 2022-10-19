@@ -11,6 +11,7 @@ on:
 jobs:
   printInputs:
     runs-on: ubuntu-latest
+    environment: test
     steps:
     - run: |
         echo "env: ${{ env.butts }}"
